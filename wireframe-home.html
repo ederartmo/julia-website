@@ -1,0 +1,658 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wireframe Home | Psicoanalisis con Julia</title>
+    <meta
+      name="description"
+      content="Wireframe de la home para validar estructura y contenido antes del diseno final."
+    />
+    <style>
+      @font-face {
+        font-family: "Montserrat";
+        src: url("./Montserrat-VariableFont_wght.ttf") format("truetype");
+        font-weight: 100 900;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: "Montserrat";
+        src: url("./Montserrat-Italic-VariableFont_wght.ttf") format("truetype");
+        font-weight: 100 900;
+        font-style: italic;
+      }
+
+      @font-face {
+        font-family: "Willing";
+        src: url("./Willing.otf") format("opentype");
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      :root {
+        --brand-900: #075373;
+        --brand-700: #025e73;
+        --brand-500: #0796a6;
+        --brand-300: #72b1bf;
+        --brand-100: #bfd1d9;
+        --ink: #173843;
+        --paper: #f5fafb;
+        --line: #9cb8c2;
+        --box: #ffffff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Montserrat", sans-serif;
+        color: var(--ink);
+        background:
+          linear-gradient(180deg, rgba(114, 177, 191, 0.12), rgba(191, 209, 217, 0.08) 35%, rgba(255, 255, 255, 1) 100%),
+          repeating-linear-gradient(
+            90deg,
+            rgba(7, 83, 115, 0.05) 0,
+            rgba(7, 83, 115, 0.05) 1px,
+            transparent 1px,
+            transparent 28px
+          );
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .container {
+        width: min(1120px, 92vw);
+        margin: 0 auto;
+      }
+
+      .wire-note {
+        background: var(--brand-900);
+        color: #fff;
+        text-align: center;
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid rgba(7, 83, 115, 0.2);
+        background: rgba(255, 255, 255, 0.85);
+      }
+
+      .header-row {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.85rem 0;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+      }
+
+      .logo-dot {
+        width: 18px;
+        height: 18px;
+        border-radius: 999px;
+        border: 2px solid var(--brand-700);
+        background: linear-gradient(135deg, var(--brand-300), var(--brand-100));
+      }
+
+      .brand-name {
+        font-family: "Willing", "Montserrat", sans-serif;
+        font-size: 1.5rem;
+        letter-spacing: 0.01em;
+      }
+
+      .nav {
+        display: flex;
+        gap: 0.9rem;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-end;
+      }
+
+      .nav a {
+        text-decoration: none;
+        font-size: 0.9rem;
+        padding: 0.45rem 0.55rem;
+        border: 1px dashed transparent;
+        border-radius: 8px;
+      }
+
+      .nav a:hover {
+        border-color: var(--line);
+      }
+
+      .btn {
+        border: 2px solid var(--brand-700);
+        background: #fff;
+        color: var(--brand-700);
+        border-radius: 999px;
+        padding: 0.56rem 0.95rem;
+        font-weight: 650;
+      }
+
+      main {
+        padding: 1.6rem 0 4rem;
+      }
+
+      .section {
+        margin-top: 1rem;
+        margin-bottom: 1.8rem;
+        border: 2px dashed var(--line);
+        background: rgba(255, 255, 255, 0.82);
+        border-radius: 16px;
+        padding: 1rem;
+      }
+
+      .section-tag {
+        display: inline-block;
+        font-size: 0.72rem;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: var(--brand-700);
+        border: 1px solid var(--brand-300);
+        border-radius: 999px;
+        padding: 0.3rem 0.6rem;
+        background: #fff;
+      }
+
+      .section h2 {
+        margin: 0.8rem 0 0.6rem;
+        font-size: clamp(1.2rem, 2.4vw, 1.8rem);
+      }
+
+      .section p {
+        margin: 0.2rem 0 0.65rem;
+        line-height: 1.5;
+      }
+
+      .muted {
+        color: #44646f;
+      }
+
+      .wire-box {
+        border: 2px dashed var(--line);
+        background: var(--box);
+        border-radius: 14px;
+        padding: 0.85rem;
+      }
+
+      .wire-label {
+        margin: 0 0 0.55rem;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--brand-700);
+        font-weight: 700;
+      }
+
+      .hero-grid,
+      .about-grid,
+      .location-grid,
+      .contact-grid {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1.35fr 1fr;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.7rem;
+      }
+
+      .btn-primary,
+      .btn-ghost {
+        display: inline-block;
+        text-decoration: none;
+        border-radius: 999px;
+        padding: 0.65rem 1rem;
+        font-weight: 700;
+        font-size: 0.92rem;
+      }
+
+      .btn-primary {
+        background: var(--brand-700);
+        color: #fff;
+      }
+
+      .btn-ghost {
+        border: 2px solid var(--brand-700);
+        color: var(--brand-700);
+      }
+
+      .placeholder {
+        min-height: 230px;
+        display: grid;
+        place-items: center;
+        color: #5b7b85;
+        background: repeating-linear-gradient(
+          45deg,
+          rgba(191, 209, 217, 0.35),
+          rgba(191, 209, 217, 0.35) 10px,
+          rgba(255, 255, 255, 0.9) 10px,
+          rgba(255, 255, 255, 0.9) 20px
+        );
+        border: 2px dashed var(--brand-300);
+        border-radius: 12px;
+        text-align: center;
+        font-weight: 600;
+      }
+
+      .cards-2,
+      .cards-3,
+      .faq-grid {
+        display: grid;
+        gap: 0.85rem;
+      }
+
+      .cards-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .cards-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .about-grid,
+      .location-grid,
+      .contact-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .list {
+        margin: 0.2rem 0 0;
+        padding-left: 1.1rem;
+      }
+
+      .list li {
+        margin: 0.38rem 0;
+      }
+
+      .step {
+        position: relative;
+      }
+
+      .step-number {
+        display: inline-grid;
+        place-items: center;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: var(--brand-700);
+        color: #fff;
+        font-size: 0.85rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+
+      .faq-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      details {
+        border: 2px dashed var(--line);
+        border-radius: 10px;
+        background: #fff;
+        padding: 0.7rem 0.8rem;
+      }
+
+      summary {
+        cursor: pointer;
+        font-weight: 650;
+      }
+
+      .field {
+        display: grid;
+        gap: 0.4rem;
+      }
+
+      .field span {
+        font-size: 0.85rem;
+        color: #3d5f69;
+      }
+
+      .input-box {
+        border: 2px dashed var(--line);
+        border-radius: 9px;
+        height: 42px;
+        background: #fff;
+      }
+
+      .input-box.area {
+        height: 120px;
+      }
+
+      footer {
+        border-top: 2px solid rgba(7, 83, 115, 0.15);
+        background: #fff;
+        margin-top: 2rem;
+      }
+
+      .footer-inner {
+        padding: 1rem 0 1.4rem;
+        color: #33535e;
+      }
+
+      .footer-inner p {
+        margin: 0.4rem 0;
+      }
+
+      @media (max-width: 950px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .cards-3 {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .about-grid,
+        .location-grid,
+        .contact-grid,
+        .faq-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .header-row {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .nav {
+          justify-content: flex-start;
+        }
+
+        .cards-2,
+        .cards-3 {
+          grid-template-columns: 1fr;
+        }
+
+        .section {
+          padding: 0.85rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wire-note">Wireframe de home (version de validacion previa)</div>
+
+    <header class="site-header">
+      <div class="container header-row">
+        <div class="brand">
+          <span class="logo-dot" aria-hidden="true"></span>
+          <strong class="brand-name">Psicoanalisis con Julia</strong>
+        </div>
+        <nav class="nav" aria-label="Navegacion principal">
+          <a href="#inicio">Inicio</a>
+          <a href="#sobre">Sobre Julia</a>
+          <a href="#servicios">Servicios</a>
+          <a href="#metodo">Metodo</a>
+          <a href="#ubicacion">Ubicacion</a>
+          <a href="#contacto">Contacto</a>
+          <button class="btn" type="button">Agendar por WhatsApp</button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container" id="inicio">
+      <section class="section">
+        <span class="section-tag">Seccion 01 · Hero</span>
+        <div class="hero-grid">
+          <div class="wire-box">
+            <p class="wire-label">Texto principal</p>
+            <p class="muted">Atencion psicoterapeutica en CDMX | Presencial y en linea</p>
+            <h1 style="margin: 0.2rem 0 0.7rem; font-size: clamp(1.8rem, 4vw, 2.8rem)">
+              Psicoanalisis con Julia
+            </h1>
+            <p>
+              Un espacio seguro para hablar, comprender lo que te pasa y construir cambios
+              reales en tu vida.
+            </p>
+            <p>
+              Iniciar terapia puede dar miedo, pero no tienes que hacerlo sola o solo. Te acompano
+              con escucha profesional y una mirada profunda para trabajar aquello que hoy te genera
+              ansiedad, conflicto o malestar.
+            </p>
+            <div class="hero-actions">
+              <a class="btn-primary" href="#contacto">Agendar por WhatsApp</a>
+              <a class="btn-ghost" href="#contacto">Llamar ahora</a>
+            </div>
+            <p class="muted" style="margin-top: 0.7rem">
+              Atencion de lunes a viernes, de 10:00 am a 8:00 pm.
+            </p>
+          </div>
+          <div class="wire-box">
+            <p class="wire-label">Bloque visual</p>
+            <div class="placeholder">Placeholder foto de Julia / imagen principal</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <span class="section-tag">Seccion 02 · Motivos de consulta</span>
+        <h2>Te acompano si hoy estas pasando por:</h2>
+        <div class="cards-2">
+          <div class="wire-box">
+            <ul class="list">
+              <li>Ansiedad, estres o sensacion de saturacion constante.</li>
+              <li>Tristeza profunda, vacio o desmotivacion.</li>
+              <li>Duelo, separacion o cambios vitales dificiles.</li>
+            </ul>
+          </div>
+          <div class="wire-box">
+            <ul class="list">
+              <li>Conflictos de pareja o en relaciones cercanas.</li>
+              <li>Dificultad para poner limites y sostener decisiones.</li>
+              <li>Repeticion de patrones que quieres comprender y transformar.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="servicios">
+        <span class="section-tag">Seccion 03 · Servicios</span>
+        <h2>Servicios de atencion psicoterapeutica</h2>
+        <div class="cards-3">
+          <article class="wire-box">
+            <p class="wire-label">Servicio 01</p>
+            <h3 style="margin: 0">Psicoterapia individual presencial</h3>
+            <p>
+              Un espacio de trabajo clinico en consultorio para explorar tu historia,
+              comprender tus sintomas y trabajar cambios sostenibles.
+            </p>
+          </article>
+          <article class="wire-box">
+            <p class="wire-label">Servicio 02</p>
+            <h3 style="margin: 0">Psicoterapia individual en linea</h3>
+            <p>
+              Acompaniamiento terapeutico por videollamada con profundidad clinica y
+              flexibilidad por tiempos o distancia.
+            </p>
+          </article>
+          <article class="wire-box">
+            <p class="wire-label">Servicio 03</p>
+            <h3 style="margin: 0">Primera entrevista de orientacion</h3>
+            <p>
+              Sesion inicial para conocernos, escuchar tu motivo de consulta y definir la
+              mejor ruta de trabajo.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="metodo">
+        <span class="section-tag">Seccion 04 · Metodo</span>
+        <h2>Como trabajaremos en terapia</h2>
+        <div class="cards-3">
+          <div class="wire-box step">
+            <span class="step-number">1</span>
+            <h3 style="margin: 0 0 0.4rem">Primera entrevista</h3>
+            <p>Escuchamos tu motivo de consulta y trazamos un plan de trabajo claro.</p>
+          </div>
+          <div class="wire-box step">
+            <span class="step-number">2</span>
+            <h3 style="margin: 0 0 0.4rem">Proceso terapeutico</h3>
+            <p>Profundizamos en patrones, emociones y conflictos para generar cambios.</p>
+          </div>
+          <div class="wire-box step">
+            <span class="step-number">3</span>
+            <h3 style="margin: 0 0 0.4rem">Seguimiento y ajustes</h3>
+            <p>Revisamos avances y ajustamos el proceso segun tus necesidades.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="sobre">
+        <span class="section-tag">Seccion 05 · Sobre Julia</span>
+        <div class="about-grid">
+          <div class="wire-box">
+            <h2>Sobre Julia</h2>
+            <p>
+              Soy Julia y acompano procesos psicoterapeuticos desde una escucha cercana,
+              etica y profesional. Mi enfoque se apoya en el psicoanalisis para ayudarte a
+              comprender de forma profunda lo que hoy te duele.
+            </p>
+            <p>
+              Cada proceso es unico. Por eso, el trabajo terapeutico se adapta a tu historia,
+              a tus tiempos y a tus objetivos.
+            </p>
+            <ul class="list">
+              <li>Formacion: [PENDIENTE]</li>
+              <li>Cedula profesional: [PENDIENTE]</li>
+              <li>Diplomados o especialidades: [PENDIENTE]</li>
+            </ul>
+          </div>
+          <div class="wire-box">
+            <p class="wire-label">Bloque visual / perfil profesional</p>
+            <div class="placeholder">Placeholder foto secundaria + sello de confianza</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="ubicacion">
+        <span class="section-tag">Seccion 06 · Ubicacion y horario</span>
+        <div class="location-grid">
+          <div class="wire-box">
+            <h2>Ubicacion y horario de atencion</h2>
+            <p>
+              Calle Miguel Lerdo de Tejada 100<br />
+              Colonia Guadalupe Inn<br />
+              C.P. 01020<br />
+              Alcaldia Alvaro Obregon<br />
+              Ciudad de Mexico
+            </p>
+            <p><strong>Horario:</strong> Lunes a viernes, 10:00 am a 8:00 pm</p>
+            <p class="muted">Tambien disponible modalidad en linea.</p>
+          </div>
+          <div class="wire-box">
+            <p class="wire-label">Mapa</p>
+            <div class="placeholder">Placeholder mapa de ubicacion</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <span class="section-tag">Seccion 07 · Bloque de confianza</span>
+        <div class="wire-box">
+          <h2>Si estas pensando en iniciar terapia</h2>
+          <p>
+            Dar el primer paso no siempre es facil. Si hoy te sientes confundida o confundido,
+            podemos tener un primer contacto para resolver dudas y valorar juntas o juntos el
+            inicio de tu proceso.
+          </p>
+          <a class="btn-primary" href="#contacto">Resolver dudas por WhatsApp</a>
+        </div>
+      </section>
+
+      <section class="section">
+        <span class="section-tag">Seccion 08 · FAQ</span>
+        <h2>Preguntas frecuentes</h2>
+        <div class="faq-grid">
+          <details open>
+            <summary>La terapia es presencial o en linea?</summary>
+            <p>Puedes tomar sesiones presenciales en CDMX o en linea por videollamada.</p>
+          </details>
+          <details>
+            <summary>Como puedo agendar?</summary>
+            <p>Puedes escribir por WhatsApp o llamar directamente al numero de contacto.</p>
+          </details>
+          <details>
+            <summary>Cuanto cuesta la sesion?</summary>
+            <p>Los costos se comparten en el primer contacto segun tu caso.</p>
+          </details>
+          <details>
+            <summary>Que pasa si necesito reprogramar?</summary>
+            <p>Si necesitas mover una cita, escribe con anticipacion para ofrecer nueva fecha.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="section" id="contacto">
+        <span class="section-tag">Seccion 09 · Contacto final</span>
+        <div class="contact-grid">
+          <div class="wire-box">
+            <h2>Agenda tu primera entrevista</h2>
+            <p><strong>Telefono:</strong> +52 55 3559 2219</p>
+            <p><strong>WhatsApp:</strong> +52 55 3559 2219</p>
+            <div class="hero-actions">
+              <a class="btn-primary" href="https://wa.me/525535592219">Agendar por WhatsApp</a>
+              <a class="btn-ghost" href="tel:+525535592219">Llamar ahora</a>
+            </div>
+          </div>
+
+          <div class="wire-box">
+            <p class="wire-label">Placeholder formulario de contacto</p>
+            <div class="field">
+              <span>Nombre</span>
+              <div class="input-box"></div>
+            </div>
+            <div class="field" style="margin-top: 0.6rem">
+              <span>Telefono / WhatsApp</span>
+              <div class="input-box"></div>
+            </div>
+            <div class="field" style="margin-top: 0.6rem">
+              <span>Mensaje</span>
+              <div class="input-box area"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-inner">
+        <p><strong>Psicoanalisis con Julia</strong> | Atencion psicoterapeutica presencial en CDMX y en linea.</p>
+        <p>Telefono: +52 55 3559 2219 | Guadalupe Inn, Alvaro Obregon, CDMX</p>
+        <p>Horario: Lunes a viernes, 10:00 am a 8:00 pm</p>
+        <p>Aviso de privacidad | Todos los derechos reservados</p>
+      </div>
+    </footer>
+  </body>
+</html>
