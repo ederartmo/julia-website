@@ -92,15 +92,29 @@ Titulo de seccion:
 - Sobre Julia
 
 Parrafo principal:
-- Soy Julia y acompano procesos psicoterapeuticos desde una escucha cercana, etica y profesional. Mi enfoque se apoya en el psicoanalisis para ayudarte a comprender de forma profunda lo que hoy te duele y abrir nuevas posibilidades de cambio.
+- Soy Julia Martinez. Mi camino hacia el psicoanalisis comenzo como una busqueda personal y hoy acompano procesos psicoterapeuticos desde una escucha cercana, etica y sostenida.
 
 Parrafo secundario:
-- Cada proceso es unico. Por eso, el trabajo terapeutico se adapta a tu historia, a tus tiempos y a tus objetivos.
+- He estado tambien del otro lado, en el lugar de quien consulta. Esa experiencia me permitio comprender la profundidad de un proceso terapeutico y sostener cada espacio con respeto, profesionalismo y compromiso.
 
-Bloque editable para completar cuando compartan datos oficiales:
-- Formacion: [PENDIENTE]
-- Cedula profesional: [PENDIENTE]
-- Diplomados o especialidades: [PENDIENTE]
+Experiencia clinica:
+- Acompano procesos terapeuticos individuales desde 2006.
+
+Formacion academica:
+- Licenciatura en Psicologia.
+- Maestria en Psicoanalisis.
+- Doctorado en Psicoanalisis (en curso).
+
+Diplomados y especialidades:
+- Diplomado en Tanatologia.
+- Diplomado en Neurociencias.
+- Formacion en Psicotrauma (modelo PARCUVE).
+- Especialidad en Analisis Existencial y Logoterapia.
+
+Cedulas profesionales:
+- Psicologia: 13734673
+- Psicoanalisis: 10980624
+- Tecnologia Educativa: 09579175
 
 ## 7) Ubicacion y horario
 
@@ -156,6 +170,11 @@ Pregunta:
 - Que pasa si necesito reprogramar?
 Respuesta:
 - Si necesitas mover una cita, escribenos con anticipacion para ofrecerte una nueva fecha.
+
+Pregunta:
+- La terapia es confidencial?
+Respuesta:
+- Si. Todo lo que se comparte en sesion se mantiene bajo estricta confidencialidad profesional.
 
 ## 10) Contacto final
 
