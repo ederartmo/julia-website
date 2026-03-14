@@ -524,6 +524,58 @@
         padding: 0.95rem;
         box-shadow: 0 14px 30px rgba(2, 70, 94, 0.09);
         min-height: 116px;
+        cursor: pointer;
+        user-select: none;
+        display: flex;
+        align-items: flex-start;
+        gap: 0.72rem;
+        transition: border-color 0.18s, background 0.18s, box-shadow 0.18s;
+      }
+
+      .motivo:hover {
+        border-color: var(--brand-500);
+        box-shadow: 0 14px 30px rgba(2, 70, 94, 0.16);
+      }
+
+      .motivo:focus-visible {
+        outline: 2px solid var(--brand-500);
+        outline-offset: 3px;
+      }
+
+      .motivo--selected {
+        border-color: var(--brand-500);
+        background: rgba(7, 83, 115, 0.05);
+      }
+
+      .motivo-check {
+        flex: 0 0 auto;
+        width: 20px;
+        height: 20px;
+        border-radius: 5px;
+        border: 2px solid var(--line);
+        margin-top: 0.14rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.15s, border-color 0.15s;
+      }
+
+      .motivo-check svg {
+        opacity: 0;
+        transition: opacity 0.12s;
+      }
+
+      .motivo--selected .motivo-check {
+        background: var(--brand-500);
+        border-color: var(--brand-500);
+      }
+
+      .motivo--selected .motivo-check svg {
+        opacity: 1;
+      }
+
+      .motivo-body {
+        flex: 1 1 0%;
       }
 
       .motivo h3 {
@@ -1412,30 +1464,60 @@
             <h2>Te acompano si hoy estas pasando por:</h2>
           </header>
 
-          <div class="motivos-grid">
-            <article class="motivo">
-              <h3>Ansiedad y estres</h3>
-              <p>Cuando sientes saturacion constante y te cuesta volver al equilibrio.</p>
+          <div class="motivos-grid" role="group" aria-label="Selecciona uno o mas motivos de consulta">
+            <article class="motivo" role="checkbox" aria-checked="false" tabindex="0" data-label="Ansiedad y estres">
+              <span class="motivo-check" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <div class="motivo-body">
+                <h3>Ansiedad y estres</h3>
+                <p>Cuando sientes saturacion constante y te cuesta volver al equilibrio.</p>
+              </div>
             </article>
-            <article class="motivo">
-              <h3>Tristeza y vacio</h3>
-              <p>Cuando el desanimo y la desconexion emocional ocupan demasiado espacio.</p>
+            <article class="motivo" role="checkbox" aria-checked="false" tabindex="0" data-label="Tristeza y vacio">
+              <span class="motivo-check" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <div class="motivo-body">
+                <h3>Tristeza y vacio</h3>
+                <p>Cuando el desanimo y la desconexion emocional ocupan demasiado espacio.</p>
+              </div>
             </article>
-            <article class="motivo">
-              <h3>Duelo o separacion</h3>
-              <p>Para transitar cambios vitales dificiles con acompanamiento profesional.</p>
+            <article class="motivo" role="checkbox" aria-checked="false" tabindex="0" data-label="Duelo o separacion">
+              <span class="motivo-check" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <div class="motivo-body">
+                <h3>Duelo o separacion</h3>
+                <p>Para transitar cambios vitales dificiles con acompanamiento profesional.</p>
+              </div>
             </article>
-            <article class="motivo">
-              <h3>Conflictos de pareja</h3>
-              <p>Si hay tension, distancia o patrones repetidos en relaciones cercanas.</p>
+            <article class="motivo" role="checkbox" aria-checked="false" tabindex="0" data-label="Conflictos de pareja">
+              <span class="motivo-check" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <div class="motivo-body">
+                <h3>Conflictos de pareja</h3>
+                <p>Si hay tension, distancia o patrones repetidos en relaciones cercanas.</p>
+              </div>
             </article>
-            <article class="motivo">
-              <h3>Limites y decisiones</h3>
-              <p>Cuando cuesta sostener lo que quieres y cuidar tu propio espacio.</p>
+            <article class="motivo" role="checkbox" aria-checked="false" tabindex="0" data-label="Limites y decisiones">
+              <span class="motivo-check" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <div class="motivo-body">
+                <h3>Limites y decisiones</h3>
+                <p>Cuando cuesta sostener lo que quieres y cuidar tu propio espacio.</p>
+              </div>
             </article>
-            <article class="motivo">
-              <h3>Patrones repetitivos</h3>
-              <p>Para comprender su origen y abrir nuevas formas de vivir y vincularte.</p>
+            <article class="motivo" role="checkbox" aria-checked="false" tabindex="0" data-label="Patrones repetitivos">
+              <span class="motivo-check" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <div class="motivo-body">
+                <h3>Patrones repetitivos</h3>
+                <p>Para comprender su origen y abrir nuevas formas de vivir y vincularte.</p>
+              </div>
             </article>
           </div>
 

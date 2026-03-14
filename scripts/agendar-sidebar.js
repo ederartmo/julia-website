@@ -36,10 +36,41 @@
   const openSidebar = () => setOpenState(true);
   const closeSidebar = () => setOpenState(false, true);
 
+  const motivoTextarea = document.getElementById("agenda-motivo");
+  const motivoCards = Array.from(document.querySelectorAll('.motivo[role="checkbox"]'));
+
+  // Selectable motivo cards
+  motivoCards.forEach((card) => {
+    const toggle = () => {
+      const checked = card.getAttribute("aria-checked") === "true";
+      card.setAttribute("aria-checked", String(!checked));
+      card.classList.toggle("motivo--selected", !checked);
+    };
+    card.addEventListener("click", toggle);
+    card.addEventListener("keydown", (e) => {
+      if (e.key === " " || e.key === "Enter") {
+        e.preventDefault();
+        toggle();
+      }
+    });
+  });
+
+  const fillMotivoFromSelection = () => {
+    if (!motivoTextarea) return;
+    const selected = motivoCards.filter((c) => c.classList.contains("motivo--selected"));
+    if (selected.length > 0) {
+      const labels = selected
+        .map((el) => el.dataset.label || el.querySelector("h3")?.textContent?.trim())
+        .filter(Boolean);
+      motivoTextarea.value = labels.join(", ");
+    }
+  };
+
   toggleButtons.forEach((button) => {
     button.addEventListener("click", (event) => {
       event.preventDefault();
       lastTrigger = button;
+      fillMotivoFromSelection();
       openSidebar();
     });
   });
@@ -97,6 +128,11 @@
 
     showMessage("success", "Tu solicitud fue enviada. Te contactaremos para confirmar tu cita.");
     form.reset();
+    // Clear motivo card selections
+    motivoCards.forEach((card) => {
+      card.classList.remove("motivo--selected");
+      card.setAttribute("aria-checked", "false");
+    });
   });
 
   setOpenState(false);
