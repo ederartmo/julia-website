@@ -2035,9 +2035,14 @@
               tiempos y a tus objetivos.
             </p>
             <ul>
-              <li>Formacion: [PENDIENTE]</li>
-              <li>Cedula profesional: [PENDIENTE]</li>
-              <li>Diplomados o especialidades: [PENDIENTE]</li>
+              <li>Licenciada en Psicologia &mdash; Cedula 13734673</li>
+              <li>Maestria en Psicoanalisis &mdash; Cedula 10980624</li>
+              <li>Doctorado en Psicoanalisis (en curso)</li>
+              <li>Diplomado en Tanatologia</li>
+              <li>Diplomado en Neurociencias</li>
+              <li>Formacion en Psicotrauma (modelo PARCUVE)</li>
+              <li>Especialidad en Analisis Existencial y Logoterapia</li>
+              <li>Mas de 15 años de experiencia clinica</li>
             </ul>
 
             <div class="section-cta">
@@ -2319,41 +2324,30 @@
               <p class="seo-note">Respuesta en horario de atencion.</p>
             </article>
 
-            <form class="panel form-grid" action="#" method="post">
+            <form id="form-contacto" class="panel form-grid" action="/contacto" method="post">
               <span class="kicker">Mensaje</span>
               <h2>Prefieres escribirnos?</h2>
 
               <div class="field">
                 <label for="nombre">Nombre</label>
-                <input id="nombre" name="nombre" type="text" autocomplete="name" />
+                <input id="nombre" name="nombre" type="text" autocomplete="name" required />
               </div>
 
               <div class="field">
                 <label for="telefono">Telefono o WhatsApp</label>
-                <input id="telefono" name="telefono" type="tel" autocomplete="tel" />
+                <input id="telefono" name="telefono" type="tel" autocomplete="tel" required />
               </div>
 
               <div class="field">
                 <label for="mensaje">Mensaje</label>
-                <textarea id="mensaje" name="mensaje"></textarea>
+                <textarea id="mensaje" name="mensaje" required></textarea>
               </div>
 
-              <p class="form-note">Este formulario es demostrativo para la fase inicial del sitio.</p>
+              <p id="form-status" class="form-note" aria-live="polite" hidden></p>
               <button class="submit" type="submit">Enviar</button>
             </form>
           </div>
 
-          <div class="section-cta">
-            <button
-              class="btn-main"
-              type="button"
-              data-agenda-toggle
-              aria-controls="agenda-sidebar"
-              aria-expanded="false"
-            >
-              Quiero iniciar mi proceso
-            </button>
-          </div>
         </div>
       </section>
     </main>
@@ -2465,6 +2459,48 @@
         window.addEventListener("resize", updateButtons);
         updateButtons();
       });
+    </script>
+
+    <script>
+      const formContacto = document.getElementById('form-contacto');
+      if (formContacto) {
+        formContacto.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const btn = formContacto.querySelector('button[type="submit"]');
+          const status = document.getElementById('form-status');
+          btn.disabled = true;
+          btn.textContent = 'Enviando...';
+          status.hidden = true;
+
+          try {
+            const res = await fetch('/contacto', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                nombre: formContacto.nombre.value,
+                telefono: formContacto.telefono.value,
+                mensaje: formContacto.mensaje.value,
+              }),
+            });
+            const data = await res.json();
+            if (data.ok) {
+              status.textContent = 'Mensaje enviado. Te contactaremos pronto.';
+              status.style.color = 'var(--brand-700)';
+              formContacto.reset();
+            } else {
+              status.textContent = data.error || 'Ocurrio un error. Intenta de nuevo.';
+              status.style.color = '#c0392b';
+            }
+          } catch {
+            status.textContent = 'No se pudo enviar. Verifica tu conexion e intenta de nuevo.';
+            status.style.color = '#c0392b';
+          } finally {
+            status.hidden = false;
+            btn.disabled = false;
+            btn.textContent = 'Enviar';
+          }
+        });
+      }
     </script>
   </body>
 </html>
